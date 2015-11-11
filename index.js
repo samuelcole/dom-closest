@@ -15,9 +15,9 @@ module.exports = function (element, selector, context) {
   // guard against orphans
   element = { parentNode: element };
 
-  while ((element = element.parentNode) && element !== context) {
+  do {
     if (element === selector || matches(element, selector)) {
       return element;
     }
-  }
+  } while ((element = element.parentNode) && element !== context);
 };
