@@ -16,7 +16,7 @@ module.exports = function (element, selector, context) {
   element = { parentNode: element };
 
   do {
-    if (element === selector || matches(element, selector)) {
+    if (element === selector || (typeof selector === 'string' && matches(element, selector))) {
       return element;
     }
   } while ((element = element.parentNode) && element !== context);
